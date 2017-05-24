@@ -7,30 +7,64 @@ CKEDITOR.editorConfig = function( config ) {
 	// Define changes to default configuration here. For example:
 	// config.language = 'fr';
 	// config.uiColor = '#AADC6E';
+
+	config.toolbarGroups = [
+		{ name: 'document', groups: [ 'mode', 'document', 'doctools' ] },
+		{ name: 'styles', groups: [ 'styles' ] },
+		{ name: 'clipboard', groups: [ 'clipboard', 'undo' ] },
+		{ name: 'editing', groups: [ 'find', 'selection', 'spellchecker', 'editing' ] },
+		{ name: 'forms', groups: [ 'forms' ] },
+		{ name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
+		{ name: 'paragraph', groups: [ 'blocks', 'list', 'indent', 'align', 'bidi', 'paragraph' ] },
+		{ name: 'links', groups: [ 'links' ] },
+		{ name: 'insert', groups: [ 'insert' ] },
+		{ name: 'colors', groups: [ 'colors' ] },
+		{ name: 'tools', groups: [ 'tools' ] },
+		{ name: 'others', groups: [ 'others' ] },
+		{ name: 'about', groups: [ 'about' ] }
+	];
+
+	config.removeButtons =
+		'Subscript,' +
+		'Superscript,' +
+		'Cut,' +
+		'Copy,' +
+		'Paste,' +
+		'PasteText,' +
+		'PasteFromWord,' +
+		'Undo,' +
+		'Redo,' +
+		'Unlink,' +
+		'Anchor,' +
+		'About,' +
+		'Iframe';
+
+	config.format_tags = 'p;h1;h2;h3;pre';
+
 	// %REMOVE_START%
 	config.plugins =
-		'about,' +
-		'a11yhelp,' +
+		// 'about,' +
+		// 'a11yhelp,' +
 		'basicstyles,' +
-		'bidi,' +
+		// 'bidi,' +
 		'blockquote,' +
 		'clipboard,' +
-		'colorbutton,' +
-		'colordialog,' +
-		'copyformatting,' +
+		// 'colorbutton,' +
+		// 'colordialog,' +
+		// 'copyformatting,' +
 		'contextmenu,' +
-		'dialogadvtab,' +
-		'div,' +
-		'elementspath,' +
+		// 'dialogadvtab,' +
+		// 'div,' +
+		// 'elementspath,' +
 		'enterkey,' +
 		'entities,' +
 		'filebrowser,' +
-		'find,' +
-		'flash,' +
+		// 'find,' +
+		// 'flash,' +
 		'floatingspace,' +
-		'font,' +
+		// 'font,' +
 		'format,' +
-		'forms,' +
+		// 'forms,' +
 		'horizontalrule,' +
 		'htmlwriter,' +
 		'image,' +
@@ -38,32 +72,33 @@ CKEDITOR.editorConfig = function( config ) {
 		'indentlist,' +
 		'indentblock,' +
 		'justify,' +
-		'language,' +
+		// 'language,' +
 		'link,' +
 		'list,' +
 		'liststyle,' +
 		'magicline,' +
 		'maximize,' +
-		'newpage,' +
-		'pagebreak,' +
+		// 'newpage,' +
+		// 'pagebreak,' +
 		'pastefromword,' +
 		'pastetext,' +
-		'preview,' +
-		'print,' +
+		// 'preview,' +
+		// 'print,' +
 		'removeformat,' +
-		'resize,' +
-		'save,' +
-		'selectall,' +
-		'showblocks,' +
-		'showborders,' +
-		'smiley,' +
+		// 'resize,' +
+		// 'save,' +
+		// 'selectall,' +
+		// 'showblocks,' +
+		// 'showborders,' +
+		// 'smiley,' +
 		'sourcearea,' +
-		'specialchar,' +
-		'stylescombo,' +
-		'tab,' +
+		// 'specialchar,' +
+		// 'stylescombo,' +
+		// 'tab,' +
 		'table,' +
+		// 'tableselection,' +
 		'tabletools,' +
-		'templates,' +
+		// 'templates,' +
 		'toolbar,' +
 		'undo,' +
 		'wysiwygarea';
