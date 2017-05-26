@@ -19,6 +19,9 @@ body {
   /* Fix for missing scrollbars with RTL texts. (#10488) */
   word-wrap: break-word;
 }
+.cke_editable > :first-child {
+  margin-top: 0!important;
+}
 blockquote {
   border-left: 6px solid #ddd;
   padding: 10px 0 10px 20px;

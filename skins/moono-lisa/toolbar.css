@@ -61,15 +61,37 @@ Special outer level classes used in this file:
 	float: right;
 }
 
+.cke_toolbar .cke_combo {
+	margin-bottom: 0;
+}
+
+.cke_toolbar a.cke_combo_button {
+	padding: 5px 1px !important;
+	margin: 0 !important;
+	opacity: .8;
+}
+
+.cke_toolbar .cke_combo:after {
+	display: none;
+}
+
+.cke_toolbar .cke_combo_on a.cke_combo_button,
+.cke_toolbar .cke_combo_off a.cke_combo_button:hover,
+.cke_toolbar .cke_combo_off a.cke_combo_button:focus,
+.cke_toolbar .cke_combo_off a.cke_combo_button:active {
+	background: transparent;
+	border: none;
+	opacity: 1;
+}
 
 /* The box that holds buttons. */
 .cke_toolgroup
 {
 	border: 0;
 	float: left;
-	margin: 1px 2px 6px 0;
+	/*margin: 1px 2px 6px 0;*/
 	/* Helps to set proper position for separators after .cke_button. */
-	padding-right: 3px;
+	/*padding-right: 3px;*/
 }
 
 .cke_rtl .cke_toolgroup
@@ -98,13 +120,13 @@ Special outer level classes used in this file:
 a.cke_button
 {
 	display: inline-block;
-	height: 18px;
-	padding: 4px 6px;
+	padding: 10px;
 	outline: none;
-	cursor: default;
+	cursor: pointer;
 	float: left;
 	border: 0;
 	position: relative;
+	opacity: .7;
 }
 
 .cke_rtl a.cke_button
@@ -131,9 +153,11 @@ a.cke_button
    i.e. currently writing in bold or when spell checking is enabled. */
 a.cke_button_on
 {
-	background: #fff;
-	border: 1px #bcbcbc solid;
-	padding: 3px 5px;
+	opacity: 1;
+	background: #EEEEEE;
+	/*background: #fff;*/
+	/*border: 1px #bcbcbc solid;*/
+	/*padding: 3px 5px;*/
 }
 
 
@@ -142,10 +166,11 @@ a.cke_button_off:hover,
 a.cke_button_off:focus,
 a.cke_button_off:active
 {
-	background: #e5e5e5;
-	border: 1px #bcbcbc solid;
+	opacity: 1;
+	/*background: #EEEEEE;*/
+	/*border: 1px #bcbcbc solid;*/
 	/* Compensate the border change */
-	padding: 3px 5px;
+	/*padding: 3px 5px;*/
 }
 
 .cke_hc a.cke_button_on,
@@ -153,10 +178,11 @@ a.cke_button_off:active
 .cke_hc a.cke_button_off:focus,
 .cke_hc a.cke_button_off:active
 {
-	background: #e5e5e5;
-	border: 3px solid #000;
+	opacity: 1;
+	background: #eeeeee;
+	/*border: 3px solid #000;*/
 	/* Compensate the border change */
-	padding: 1px 3px;
+	/*padding: 1px 3px;*/
 }
 
 
@@ -165,14 +191,12 @@ a.cke_button_disabled:hover,
 a.cke_button_disabled:focus,
 a.cke_button_disabled:active
 {
-	border: 0;
-	padding: 4px 6px;
 	background-color: transparent;
 }
 
 a.cke_button_disabled:focus {
 	border: 1px #bcbcbc solid;
-	padding: 3px 5px;
+	/*padding: 3px 5px;*/
 }
 
 .cke_hc a.cke_button_disabled:hover,
@@ -225,7 +249,7 @@ a.cke_button_disabled .cke_button_arrow
 .cke_toolgroup a.cke_button:last-child:after,
 .cke_toolgroup a.cke_button.cke_button_disabled:hover:last-child:after
 {
-	content: "";
+	/*content: "";*/
 	position: absolute;
 	height: 18px;
 	width: 0;
@@ -311,7 +335,7 @@ a.cke_button_disabled .cke_button_arrow
 {
 	cursor: inherit;
 	background-repeat: no-repeat;
-	margin-top: 1px;
+	/*margin-top: 1px;*/
 	width: 16px;
 	height: 16px;
 	float: left;
@@ -334,8 +358,8 @@ a.cke_button_disabled .cke_button_arrow
 {
 	display: none;
 	padding-left: 3px;
-	margin-top: 1px;
-	line-height: 17px;
+	/*margin-top: 1px;*/
+	line-height: 16px;
 	vertical-align: middle;
 	float: left;
 	cursor: default;
@@ -391,9 +415,9 @@ a.cke_button_disabled .cke_button_arrow
 .cke_toolbar_separator
 {
 	float: left;
-	background-color: #bcbcbc;
-	margin: 4px 2px 0 2px;
-	height: 18px;
+	background-color: #CFCFCF;
+	margin: 10px 10px;
+	height: 16px;
 	width: 1px;
 }
 
