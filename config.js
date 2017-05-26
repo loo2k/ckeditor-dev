@@ -40,9 +40,12 @@ CKEDITOR.editorConfig = function( config ) {
 		'Iframe';
 
 	config.format_tags = 'p;h1;h2;h3;pre';
+	config.removeDialogTabs = 'image:advanced;link:advanced;link:target';
 
+	config.height = 600;
 	config.autoGrow_minHeight = 600;
-	config.imageUploadUrl = '/wiki/upload';
+
+	// config.imageUploadUrl = '/wiki/upload';
 	config.uploadUrl = '/wiki/upload';
 	config.filebrowserUploadUrl = '/wiki/upload';
 
@@ -101,7 +104,6 @@ CKEDITOR.editorConfig = function( config ) {
 		// 'stylescombo,' +
 		// 'tab,' +
 		'table,' +
-		// 'tableselection,' +
 		'tabletools,' +
 		// 'templates,' +
 		'toolbar,' +
@@ -109,6 +111,7 @@ CKEDITOR.editorConfig = function( config ) {
 		'wysiwygarea,' +
 		'ckeditortablecellsselection,' +
 		'tableresize,' +
+		'codesnippet,' +
 		'autogrow';
 	// %REMOVE_END%
 };

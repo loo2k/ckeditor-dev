@@ -150,12 +150,26 @@ img.left {
   padding: 5px;
 }
 pre {
-  white-space: pre-wrap;
-  /* CSS 2.1 */
-  word-wrap: break-word;
-  /* IE7 */
-  -moz-tab-size: 4;
+  color: #444;
+  padding: 10px 5px 10px 10px;
+  margin: 15px 0;
+  display: block;
+  line-height: 20px;
+  background: #F0F0F0;
+  border-radius: 3px;
+  font-size: 14px;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  white-space: pre;
+  word-wrap: normal;
+  overflow-x: auto;
   tab-size: 4;
+}
+pre code {
+  display: block;
+  padding: 0;
+  margin: 0;
+  background: none;
+  border-radius: 0;
 }
 table {
   width: 100% !important;
@@ -180,6 +194,14 @@ table th {
 table td.active,
 table th.active {
   background-color: #ffffee;
+}
+table td > :first-child,
+table th > :first-child {
+  margin-top: 0;
+}
+table td > :last-child,
+table th > :last-child {
+  margin-bottom: 0;
 }
 .marker {
   background-color: Yellow;

@@ -127,6 +127,7 @@ a.cke_button
 	border: 0;
 	position: relative;
 	opacity: .7;
+	transition: opacity .4s ease;
 }
 
 .cke_rtl a.cke_button
@@ -136,15 +137,15 @@ a.cke_button
 
 .cke_hc a.cke_button
 {
-	border: 1px solid black;
+	/*border: 1px solid black;*/
 	/* Compensate the added border */
-	padding: 3px 5px;
-	margin: 0 3px 5px 0;
+	/*padding: 3px 5px;*/
+	/*margin: 0 3px 5px 0;*/
 }
 
 .cke_hc.cke_rtl a.cke_button
 {
-	margin: 0 0 5px 3px;
+	/*margin: 0 0 5px 3px;*/
 }
 
 

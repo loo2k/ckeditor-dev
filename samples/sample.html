@@ -9,8 +9,161 @@
 <body>
 
   <div id="editor">
-    <h1>Hello world!</h1>
-    <p>I'm an instance of <a href="http://ckeditor.com">CKEditor</a>.</p>
+	<p>demo.cdc.im 是用于前端项目的演示和体验，提供 FTP 账号进行发布。</p>
+
+	<blockquote>
+	<p>FTP 地址: demo.cdc.im<br />
+	FTP 账号: mode<br />
+	FTP 密码: 请联系 lukezhu / hanezeng 索取</p>
+	</blockquote>
+
+	<p>使用 demo.cdc.im 演示平台需注意以下几点：</p>
+
+	<ul>
+		<li>文件需上传至个人目录，如：lukezhu 上传的文件夹为 demo.cdc.im/luke；</li>
+		<li>外部供应商的代码统一上传至 demo.cdc.im/cp；</li>
+		<li>默认只允许内网访问 demo.cdc.im；</li>
+		<li>不允许上传敏感信息；</li>
+		<li>严禁放打包好的源代码文件(rar,zip, 7z)等, 后果自负；</li>
+		<li>放项目相关的文件,请咨询PM；</li>
+	</ul>
+
+	<h2>.htaccess</h2>
+
+	<p>demo.cdc.im 使用的是<code>apache</code>服务器，所以服务器目录可以通过配置<code>.htaccess</code>文件配置；</p>
+
+	<p>一下提供几个常用的<code>.htaccess</code>文件供大家使用：</p>
+
+	<p><strong>注意：<code>.htaccess</code>文件需放在项目文件夹下，请忽放在根目录</strong></p>
+
+	<h3>允许外网访问</h3>
+
+	<pre>
+	&lt;Files *&gt;
+		Order deny,allow
+		Allow from ALL;
+	&lt;/Files&gt;
+	</pre>
+
+	<h3>使用 Mozi Index Kit</h3>
+
+	<pre><code>
+# Mozi Index Kit
+# 墨子工作室目录索引组件
+IndexOptions ScanHTMLTitles Charset=UTF-8
+IndexIgnore /luke/cp/tmpl
+HeaderName /luke/cp/tmpl/header.html
+ReadmeName /luke/cp/tmpl/footer.html
+
+# 需要目录索引需在目标文件夹中 .htaccess 文件添加以下内容
+# 注: 需取消以下两行内容注释
+Options +Indexes
+DirectoryIndex dir.html</code></pre>
+
+	<h3>添加内网可访问IP</h3>
+
+	<p>编辑根目录下<code>.htaccess</code>文件，在<code>&lt;Files *&gt;&lt;/Files&gt;</code>内添加无法访问的公司内 IP 地址：</p>
+
+	<pre>
+	&lt;Files *&gt;
+		Allow from 180.153.219.17
+	&lt;/Files&gt;
+	</pre>
+
+	<h3>根目录 .htaccess 文件备份</h3>
+
+	<pre>
+	&lt;Files *&gt;
+		Order deny,allow
+		Deny from All
+		Allow from 219.133.62.73 59.37.125.71
+		Allow from 119.147.78.6
+		Allow from 219.133.62.74
+		Allow from 112.95.138.22
+		Allow from 112.95.138.23
+		Allow from 112.95.138.24
+		Allow from 112.95.138.25
+		Allow from 121.14.96.119
+		Allow from 121.14.96.120
+		Allow from 121.14.96.121
+		Allow from 121.14.96.122
+		Allow from 121.14.96.123
+		Allow from 121.14.96.124
+		Allow from 121.14.96.125
+		Allow from 121.14.96.126
+		Allow from 113.108.76.171
+		Allow from 113.108.76.172
+		Allow from 113.108.76.173
+		Allow from 113.108.76.174
+		Allow from 113.108.76.175
+		Allow from 113.108.76.176
+		Allow from 113.108.76.195
+		Allow from 113.108.76.196
+		Allow from 14.17.22.0/24
+		Allow from 14.17.22.35
+		Allow from 59.37.125.0/4
+		Allow from 61.49.56.0/24
+		Allow from 14.17.37.0/24
+		Allow from 14.17.22.33
+		Allow from 14.17.44.0/24
+		Allow from 14.152.69.0/24
+		Allow from 219.133.40.0/24
+		Allow from 14.17.22.54
+		#成都现有IP
+		Allow from 119.6.29.106
+		Allow from 119.6.29.107
+		Allow from 125.69.76.131
+		Allow from 125.69.76.132
+		Allow from 125.69.76.17
+		Allow from 125.69.76.18
+		#成都即将现有IP
+		Allow from 182.131.19.95
+		Allow from 182.131.19.96
+		Allow from 182.131.19.97
+		Allow from 182.131.19.98
+		Allow from 182.131.19.99
+		#Allow from 182.131.19.100
+		#Allow from 182.131.19.101
+		#Allow from 182.131.19.102
+		#Allow from 118.123.232.119
+		#Allow from 118.123.232.120
+		#Allow from 118.123.232.121
+		#Allow from 118.123.232.122
+		#Allow from 118.123.232.123
+		#Allow from 118.123.232.124
+		#Allow from 118.123.232.125
+		#Allow from 118.123.232.126
+		#Allow from 118.123.232.127
+		#上海现有出口IP
+		Allow from 61.172.204.9
+		Allow from 222.73.75.9
+		# 上海公网出口即将新增的IP地址
+		Allow from 180.153.219.11
+		Allow from 180.153.219.12
+		Allow from 180.153.219.13
+		Allow from 180.153.219.14
+		Allow from 180.153.219.15
+		Allow from 180.153.219.16
+		Allow from 180.153.219.17
+		#香港同事临时测试官网 by jeterli
+		Allow from 112.120.69.103
+		deny from all
+	&lt;/Files&gt;
+
+	# Mozi Index Kit
+	# 墨子工作室目录索引组件
+	IndexOptions ScanHTMLTitles Charset=UTF-8
+	IndexIgnore /luke/cp/tmpl
+	HeaderName /luke/cp/tmpl/header.html
+	ReadmeName /luke/cp/tmpl/footer.html
+
+	# 需要目录索引需在目标文件夹中 .htaccess 文件添加以下内容
+	# 注: 需取消以下两行内容注释
+	# Options +Indexes
+	# DirectoryIndex dir.html
+	</pre>
+
+	<p>&nbsp;</p>
   </div>
 
   <div style="height: 10000px;"></div>
