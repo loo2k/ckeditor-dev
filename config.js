@@ -41,6 +41,11 @@ CKEDITOR.editorConfig = function( config ) {
 
 	config.format_tags = 'p;h1;h2;h3;pre';
 
+	config.autoGrow_minHeight = 600;
+	config.imageUploadUrl = '/wiki/upload';
+	config.uploadUrl = '/wiki/upload';
+	config.filebrowserUploadUrl = '/wiki/upload';
+
 	// %REMOVE_START%
 	config.plugins =
 		// 'about,' +
@@ -101,7 +106,10 @@ CKEDITOR.editorConfig = function( config ) {
 		// 'templates,' +
 		'toolbar,' +
 		'undo,' +
-		'wysiwygarea';
+		'wysiwygarea,' +
+		'ckeditortablecellsselection,' +
+		'tableresize,' +
+		'autogrow';
 	// %REMOVE_END%
 };
 
