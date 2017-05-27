@@ -158,6 +158,8 @@
 					scrollable.removeStyle( 'overflow-y' );
 			}
 		}
+
+		resizeEditor();
 	}
 } )();
 
