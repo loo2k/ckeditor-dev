@@ -104,6 +104,13 @@ Special outer level classes used in this file:
 	white-space: normal;
 }
 
+.cke_top.cke_top--fixed {
+	border: 1ox solid #eeeeee;
+	background: #fff;
+  	box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+	z-index: 10;
+}
+
 .cke_float .cke_top
 {
 	border: 1px solid #d1d1d1;
