@@ -15,7 +15,7 @@ CKEDITOR.editorConfig = function( config ) {
 		{ name: 'editing', groups: [ 'find', 'selection', 'spellchecker', 'editing' ] },
 		{ name: 'forms', groups: [ 'forms' ] },
 		{ name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
-		{ name: 'paragraph', groups: [ 'blocks', 'list', 'indent', 'align', 'bidi', 'paragraph' ] },
+		{ name: 'paragraph', groups: [ 'blocks', 'list', 'indent', ['align'], 'bidi', 'paragraph' ] },
 		{ name: 'links', groups: [ 'links' ] },
 		{ name: 'insert', groups: [ 'insert' ] },
 		{ name: 'colors', groups: [ 'colors' ] },
@@ -42,12 +42,14 @@ CKEDITOR.editorConfig = function( config ) {
 	config.format_tags = 'p;h1;h2;h3;pre';
 	config.removeDialogTabs = 'image:advanced;link:advanced;link:target';
 
-	config.height = 600;
+	// config.minHeight = 600;
+	config.height = 'auto';
 	config.autoGrow_minHeight = 600;
 
-	// config.imageUploadUrl = '/wiki/upload';
-	config.uploadUrl = '/wiki/upload';
-	config.filebrowserUploadUrl = '/wiki/upload';
+	config.toolbarOffset = 30;
+
+	config.uploadUrl = '/wiki/api/file';
+	config.filebrowserUploadUrl = '/wiki/api/file';
 
 	// %REMOVE_START%
 	config.plugins =
@@ -75,7 +77,7 @@ CKEDITOR.editorConfig = function( config ) {
 		// 'forms,' +
 		'horizontalrule,' +
 		'htmlwriter,' +
-		'image,' +
+		'image2,' +
 		'iframe,' +
 		'indentlist,' +
 		'indentblock,' +
@@ -112,6 +114,8 @@ CKEDITOR.editorConfig = function( config ) {
 		'ckeditortablecellsselection,' +
 		'tableresize,' +
 		'codesnippet,' +
+		'toolbarfloat,' +
+		// 'simpleuploads,' +
 		'autogrow';
 	// %REMOVE_END%
 };

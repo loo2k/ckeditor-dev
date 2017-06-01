@@ -33,6 +33,44 @@ var CKBUILDER_CONFIG = {
 		'tests'
 	],
 	plugins: {
+		basicstyles: 1,
+		blockquote: 1,
+		clipboard: 1,
+		contextmenu: 1,
+		enterkey: 1,
+		entities: 1,
+		filebrowser: 1,
+		floatingspace: 1,
+		format: 1,
+		horizontalrule: 1,
+		htmlwriter: 1,
+		image2: 1,
+		iframe: 1,
+		indentlist: 1,
+		indentblock: 1,
+		justify: 1,
+		link: 1,
+		list: 1,
+		liststyle: 1,
+		magicline: 1,
+		maximize: 1,
+		pastefromword: 1,
+		pastetext: 1,
+		removeformat: 1,
+		sourcearea: 1,
+		table: 1,
+		tabletools: 1,
+		toolbar: 1,
+		undo: 1,
+		wysiwygarea: 1,
+		ckeditortablecellsselection: 1,
+		tableresize: 1,
+		codesnippet: 1,
+		toolbarfloat: 1,
+		autogrow: 1
+	}
+	/*
+	plugins: {
 		// a11yhelp: 1,
 		// about: 1,
 		basicstyles: 1,
@@ -54,7 +92,7 @@ var CKBUILDER_CONFIG = {
 		floatingspace: 1,
 		// font: 1,
 		format: 1,
-		forms: 1,
+		// forms: 1,
 		horizontalrule: 1,
 		htmlwriter: 1,
 		iframe: 1,
@@ -90,5 +128,5 @@ var CKBUILDER_CONFIG = {
 		toolbar: 1,
 		undo: 1,
 		wysiwygarea: 1
-	}
+	}*/
 };
