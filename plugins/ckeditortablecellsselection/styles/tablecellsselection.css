@@ -23,6 +23,6 @@
 	background-color: transparent;
 }
 .tcs .tcs-selected:not(.sel-from){
-	border: 1px double #4887C7;
+	outline: 1px double #4887C7;
 	background-color: rgba(51, 122, 183, 0.01) !important;
 }

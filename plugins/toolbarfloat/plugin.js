@@ -9,51 +9,98 @@
  *
  */
 
-CKEDITOR.plugins.add( 'toolbarfloat', {
-	init: function( editor ) {
+'use strict';
+
+( function() {
+
+	CKEDITOR.plugins.add( 'toolbarfloat', {
+		init: function( editor ) {
+			if ( editor.elementMode == CKEDITOR.ELEMENT_MODE_INLINE )
+				return;
+
+			editor.on( 'instanceReady', function() {
+				initToolbarFloat( editor );
+			});
+		}
+	});
+
+	function initToolbarFloat( editor ) {
+
+		var container = editor.container.getFirst( function( node ) {
+			return node.type == CKEDITOR.NODE_ELEMENT && node.hasClass('cke_inner');
+		});
+		var toolbar = editor.ui.space( 'top' );
+
+		var $editor = $('.cke');
+		var $toolbar = $('.cke_top');
+		var initialized = false;
 		var toolbarOffset = editor.config.toolbarOffset || 0;
 		var toolbarHeight = 0;
 
+		function initToolbarFloatBase() {
 
-		function initToolbarFloat() {
-			var $editor = $('.cke');
-			var $toolbar = $('.cke_top');
+			// console.log('toolbar.$.offsetLeft', toolbar.$.offsetLeft);
+			// console.log('toolbar.$.offsetWidth', toolbar.$.offsetWidth);
+			console.log('init');
+			toolbar.setStyle( 'position', 'static' );
+			// console.log('toolbar.$.offsetWidth', toolbar.$.offsetWidth);
+			toolbar.setStyle( 'width', container.$.offsetWidth );
+			toolbar.setStyle( 'left', container.$.offsetLeft );
 
-			$toolbar.css('position', 'static');
-			$toolbar.css('width', 'auto');
-			$toolbar.css('width', $toolbar.outerWidth());
-			$toolbar.css('left', $toolbar.offset().left);
-			$toolbar.css('position', '');
+			// toolbar.setStyles( {
+			// 	'position': 'static',
+			// 	'width': toolbar.$.offsetWidth,
+			// 	'left': toolbar.$.offsetLeft
+			// } );
 
-			toolbarHeight = $toolbar.outerHeight();
+			// console.log('toolbar.$.offsetWidth', toolbar.$.offsetWidth);
+			// setTimeout( function() {
+				// toolbar.setStyles( {
+					// 'position': '',
+					// 'width': toolbar.$.offsetWidth
+				// } );
+			// }, 0 );
+
+			toolbarHeight = toolbar.$.offsetHeight;
+
 			return true;
 		}
 
-		initialized = null
 		$(window).on( 'resize.ckeditor', function() {
-			initialized = initToolbarFloat()
+			if ($toolbar.length == 0) {
+				return false;
+			}
+
+			initialized = initToolbarFloatBase()
 		});
 
 		$(window).on( 'scroll.ckeditor', function() {
-			var $editor = $('.cke');
-			var $toolbar = $('.cke_top');
-			var $content = $('.cke_contents');
+			console.log('initialized', initialized);
+			if ($toolbar.length == 0) {
+				return false;
+			}
 
-			topEdge = $editor.offset().top
-			bottomEdge = topEdge + $editor.outerHeight();
-			scrollTop = $(document).scrollTop() + toolbarOffset;
+			var topEdge = container.$.offsetTop;
+			var bottomEdge = topEdge + container.$.offsetHeight;
+			var ckeWindow = new CKEDITOR.dom.window( window );
+			var scrollTop = ckeWindow.getScrollPosition().y + toolbarOffset;
 
 			if (scrollTop <= topEdge || scrollTop >= bottomEdge) {
-				$toolbar.removeClass('cke_top--fixed');
-				$toolbar.css('position', 'static');
-				$toolbar.css('top', toolbarOffset);
-				$editor.css('padding-top', '');
+
+				toolbar.removeClass( 'cke_top--fixed' );
+				toolbar.setStyle( 'position', 'static' );
+				toolbar.setStyle( 'top', toolbarOffset );
+				container.setStyle( 'padding-top', '' );
+
 			} else {
-				initialized = initialized ? initToolbarFloat() : true;
-				$toolbar.addClass('cke_top--fixed');
-				$toolbar.css('position', 'fixed');
-				$editor.css('padding-top', toolbarHeight);
+				initialized = initialized ? initToolbarFloatBase() : true;
+
+				toolbar.addClass( 'cke_top--fixed' );
+				toolbar.setStyle( 'position', 'fixed' );
+				container.setStyle( 'padding-top', toolbarHeight );
 			}
 		});
+
 	}
-});
+
+})();

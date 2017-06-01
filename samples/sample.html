@@ -7,8 +7,8 @@
   <title>ckeditor demo</title>
 </head>
 <body>
-
-  <div id="editor">
+<div style="height: 100px;"></div>
+<div id="editor">
 	<p>demo.cdc.im 是用于前端项目的演示和体验，提供 FTP 账号进行发布。</p>
 
 	<blockquote>
@@ -171,7 +171,28 @@ DirectoryIndex dir.html</code></pre>
   <script src="https://unpkg.com/jquery@3.2.1"></script>
 	<script src="../ckeditor.js"></script>
   <script>
-	CKEDITOR.replace('editor');
+	var editor = CKEDITOR.replace('editor');
+	CKEDITOR.on('dialogDefinition', function(evt) {
+		var dialogName = evt.data.name;
+		var dialogDefinition = evt.data.definition;
+		if (dialogName == 'image2') {
+			console.log(dialogDefinition);
+			var dialogContents = dialogDefinition.getContents('Upload');
+
+			var upload = dialogContents.get('upload');
+			var uploadButton = dialogContents.get('uploadButton');
+
+			upload.id = 'file';
+			uploadButton['for'] = ['Upload', 'file'];
+			uploadButton.filebrowser = {
+				action : 'QuickUpload',
+				target: 'info:src',
+				params: {hostname: '12312312'}
+			}
+
+			console.log(dialogContents);
+		}
+	});
   </script>
 </body>
 </html>
